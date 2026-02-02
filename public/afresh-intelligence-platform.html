@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afresh Intelligence Platform</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.5;
+      font-size: 11px;
+    }
+
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      padding: 0.5in;
+      margin: 0 auto;
+      background: white;
+      position: relative;
+      page-break-after: always;
+    }
+
+    .page:last-child {
+      page-break-after: avoid;
+    }
+
+    /* Page 1 Styles */
+    .page-1 .header {
+      background: linear-gradient(135deg, #166534 0%, #15803d 50%, #16a34a 100%);
+      color: white;
+      padding: 40px;
+      margin: -0.5in -0.5in 0 -0.5in;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-1 .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="80" cy="20" r="40" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="70" r="30" fill="rgba(255,255,255,0.05)"/></svg>');
+      background-size: cover;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .logo-icon {
+      width: 24px;
+      height: 24px;
+      background: white;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .page-1 h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .page-1 .subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .page-1 .intro {
+      font-size: 12px;
+      line-height: 1.6;
+      max-width: 90%;
+    }
+
+    .content {
+      padding: 30px 0;
+    }
+
+    h2 {
+      color: #166534;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .why-afresh p {
+      font-size: 11px;
+      line-height: 1.7;
+      color: #374151;
+      margin-bottom: 24px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .feature {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: #166534;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .feature-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    .feature h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #166534;
+      margin-bottom: 6px;
+    }
+
+    .feature p {
+      font-size: 10px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    .bottom-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #f0fdf4;
+      padding: 16px 0.5in;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #dcfce7;
+    }
+
+    .benefits {
+      display: flex;
+      gap: 40px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #166534;
+    }
+
+    .benefit-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #166534;
+      color: white;
+      padding: 10px 0.5in;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+
+    .page-number {
+      font-weight: 500;
+    }
+
+    /* Page 2 Styles */
+    .page-2 h2 {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .page-2 .intro-text {
+      font-size: 11px;
+      line-height: 1.7;
+      color: #374151;
+      margin-bottom: 24px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9fafb;
+      border-radius: 8px;
+    }
+
+    .process-item {
+      text-align: center;
+    }
+
+    .process-icon {
+      width: 36px;
+      height: 36px;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .process-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: #166534;
+    }
+
+    .process-item h4 {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+
+    .process-item p {
+      font-size: 9px;
+      color: #6b7280;
+      line-height: 1.4;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .detail-item h4 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #166534;
+      margin-bottom: 8px;
+    }
+
+    .detail-dot {
+      width: 10px;
+      height: 10px;
+      background: #22c55e;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .detail-item p {
+      font-size: 9px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    .produce-image {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.8)),
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f3f4f6" width="400" height="200"/><text x="200" y="100" text-anchor="middle" fill="%239ca3af" font-family="sans-serif" font-size="14">[Fresh Produce Image]</text></svg>');
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+      margin-top: auto;
+    }
+
+    /* Page 3 Styles */
+    .page-3 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-3 h2 {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .problem-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      flex: 1;
+    }
+
+    .problem-left {
+      background: #f0fdf4;
+      padding: 24px;
+      border-radius: 8px;
+    }
+
+    .problem-intro {
+      font-size: 11px;
+      color: #374151;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .problem-list {
+      list-style: none;
+    }
+
+    .problem-list li {
+      font-size: 10px;
+      color: #374151;
+      margin-bottom: 12px;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .problem-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #166534;
+      font-weight: bold;
+    }
+
+    .problem-list li strong {
+      color: #1a1a1a;
+    }
+
+    .delivers-box {
+      background: white;
+      border: 2px solid #166534;
+      border-radius: 8px;
+      padding: 20px;
+      height: fit-content;
+    }
+
+    .delivers-box h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #166534;
+      margin-bottom: 16px;
+    }
+
+    .delivers-list {
+      list-style: none;
+    }
+
+    .delivers-list li {
+      font-size: 10px;
+      color: #374151;
+      margin-bottom: 12px;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .delivers-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    .quotes-section {
+      background: #166534;
+      color: white;
+      padding: 24px;
+      border-radius: 8px;
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .quotes {
+      position: relative;
+    }
+
+    .quote-mark {
+      font-size: 48px;
+      font-weight: 700;
+      opacity: 0.3;
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      font-family: Georgia, serif;
+    }
+
+    .quote {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .quote:last-child {
+      margin-bottom: 0;
+    }
+
+    .food-waste-image {
+      width: 100%;
+      height: 140px;
+      background: #f3f4f6;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af;
+      font-size: 11px;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+
+    @media screen {
+      body {
+        background: #e5e7eb;
+        padding: 20px;
+      }
+
+      .page {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Page 1 -->
+  <div class="page page-1">
+    <div class="header">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="#166534">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+        </div>
+        Afresh
+      </div>
+      <h1>Afresh Intelligence<br>Platform</h1>
+      <p class="subtitle">Finally, a solution for messy and incomplete grocery data</p>
+      <p class="intro">Solve the persistent challenge of fragmented, inconsistent grocery and fresh data with Afresh's AI-powered data intelligence platform. Designed to seamlessly centralize, clean, and enrich your data to enable faster integrations, better analytics, improved decision-making, and to enable true AI usage across your entire grocery business.</p>
+    </div>
+
+    <div class="content">
+      <section class="why-afresh">
+        <h2>Why Afresh</h2>
+        <p>Afresh has deployed its solutions by integrating directly with 20% of the US grocery industry by revenue. Along the way, we've worked through an incredible amount of data issues and built industry-leading fresh data expertise.</p>
+        <p>We're now leveraging that expertise with our Intelligence Platform, which addresses one of the most persistent challenges in grocery: inaccessible, inaccurate data. Our AI-powered, fresh-first data intelligence layer transforms messy data into a unified, actionable asset that drives operational velocity, unlocks previously impossible analytics, and enables modern AI usage for future growth.</p>
+      </section>
+
+      <div class="features-grid">
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          </div>
+          <h3>Designed for Fresh Complexity</h3>
+          <p>Afresh is built to handle all relevant fresh nuances that have created historic challenges in data management including: 100+ item codes for one product, recipe and ingredient relationships, yield and trim variations, varying shippable and sellable units of measure including random weight, substitution patterns, and much more.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+          </div>
+          <h3>Engineered to Navigate Messy and Incomplete Data</h3>
+          <p>Afresh anticipates and corrects errors in fresh data, resolves incomplete records, and enriches data. Unlike one-time cleanup projects, Afresh is a dynamic system that actively prevents data decay, using AI to continuously transform messy data into production-grade intelligence that powers critical decisions.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"/></svg>
+          </div>
+          <h3>The Semantic Layer for Fresh Grocery</h3>
+          <p>Afresh becomes your semantic layer—the translation layer between messy source systems and business applications. We provide business-friendly data models (Items, "Sales," "Recipes") instead of cryptic technical schemas, making every downstream system and tool work from a single, dynamic, and reliable source of truth.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <div class="benefits">
+        <div class="benefit"><span class="benefit-dot"></span> Save Time</div>
+        <div class="benefit"><span class="benefit-dot"></span> Gain Insights</div>
+        <div class="benefit"><span class="benefit-dot"></span> Increase Efficiency</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-logo">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        Afresh
+      </div>
+      <span>Afresh.com  |  Afresh Technologies Inc. 2026 Proprietary & Confidential</span>
+      <span class="page-number">1</span>
+    </div>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page page-2">
+    <h2>How It Works</h2>
+    <p class="intro-text">Afresh's data intelligence platform is deployed directly in your data ecosystem and can be configured to meet your specific business requirements. We use AI to centralize and transform your data in its current form, enriching it with fresh-specific intelligence. That unified data layer is available for querying via BI tools, APIs, or direct warehouse access.</p>
+
+    <div class="process-grid">
+      <div class="process-item">
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+        </div>
+        <h4>Data Centralization</h4>
+        <p>Pull disparate data from ERPs, SCM, POS, and other legacy systems into your data warehouse</p>
+      </div>
+      <div class="process-item">
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM9 7v10l7-5z"/></svg>
+        </div>
+        <h4>AI Intelligence</h4>
+        <p>Process data through Afresh's proprietary algorithms (item mapping, recipe attribution, data cleaning, data enrichment)</p>
+      </div>
+      <div class="process-item">
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        </div>
+        <h4>Downstream Activation</h4>
+        <p>BI reporting, downstream systems, and Afresh products with clean, enriched data</p>
+      </div>
+    </div>
+
+    <div class="details-grid">
+      <div class="detail-item">
+        <h4><span class="detail-dot"></span> Unified Semantic Layer</h4>
+        <p>Afresh is built to handle all relevant fresh nuances that have created historic challenges in data management including: 100+ item codes for one product, recipe and ingredient relationships, yield and trim variations, varying shippable and sellable units of measure including random weight, substitution patterns, and much more.</p>
+      </div>
+      <div class="detail-item">
+        <h4><span class="detail-dot"></span> AI-Powered Intelligence</h4>
+        <p>Afresh anticipates and corrects errors in fresh data, resolves incomplete records, and enriches data. Unlike one-time cleanup projects, Afresh is a dynamic system that actively prevents data decay, using AI to continuously transform messy data into production-grade intelligence that powers critical decisions.</p>
+      </div>
+      <div class="detail-item">
+        <h4><span class="detail-dot"></span> Operational Velocity</h4>
+        <p>Eliminate IT bottlenecks and empower every team. Business users can query data with natural language, build dashboards in hours instead of quarters, and access complex data without technical resources.</p>
+      </div>
+    </div>
+
+    <div class="produce-image">[Fresh Produce Image]</div>
+
+    <div class="footer">
+      <div class="footer-logo">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        Afresh
+      </div>
+      <span>Afresh.com  |  Afresh Technologies Inc. 2026 Proprietary & Confidential</span>
+      <span class="page-number">2</span>
+    </div>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page page-3">
+    <h2>The Problem</h2>
+
+    <div class="problem-section">
+      <div class="problem-left">
+        <p class="problem-intro">Garbage in, garbage out. Gartner estimates poor data quality costs organizations an average of $12.9 million annually in wasted resources and lost opportunities.</p>
+
+        <ul class="problem-list">
+          <li><strong>Operational inefficiency:</strong> IT teams spend the majority of their time on data integration and cleanup. Business users wait weeks for basic answers</li>
+          <li><strong>Decision paralysis:</strong> Executives can't trust their dashboards. Category managers can't assess true margins. Operators can't optimize without reliable data</li>
+          <li><strong>Integration tax:</strong> Each new system requires months of custom engineering at millions in cost—then breaks when source systems change</li>
+          <li><strong>Stalled AI/ML initiatives:</strong> Your competitors are building forecasting, dynamic pricing, and personalization. You're stuck in data prep</li>
+        </ul>
+      </div>
+
+      <div class="delivers-box">
+        <h3>What Afresh Delivers:</h3>
+        <ul class="delivers-list">
+          <li>Reduce integration time from months to days</li>
+          <li>Enable modern AI with high-quality data</li>
+          <li>Unlock previously impossible analytics—real-time shrink by ingredient, universal item-level sales, recipe margins</li>
+          <li>Enable true self-service analytics across your organization</li>
+          <li>Eliminate thousands of hours of manual data work</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quotes-section">
+      <div class="quotes">
+        <span class="quote-mark">"</span>
+        <p class="quote">"You had me the moment you said cleaner data."</p>
+        <p class="quote">"We have a disconnect between all our systems... There's so many things that get forgotten"</p>
+        <p class="quote">"A single, properly coordinated record update across all systems takes approximately four hours of total staff time"</p>
+      </div>
+      <div class="food-waste-image">[Food Waste Image]</div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-logo">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        Afresh
+      </div>
+      <span>Afresh.com  |  Afresh Technologies Inc. 2026 Proprietary & Confidential</span>
+      <span class="page-number">3</span>
+    </div>
+  </div>
+</body>
+</html>

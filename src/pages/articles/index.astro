@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const articles = [
+  {
+    title: "What I Learned From 1,000 Sleepless Nights",
+    source: "X",
+    url: "https://x.com/matt__schwartz/status/2016195070207332759",
+    date: new Date("2026-01-27"),
+  },
+  {
+    title: "Sharing Our $115M Series B — and Why We Started Afresh",
+    source: "LinkedIn",
+    url: "https://www.linkedin.com/pulse/sharing-our-115m-series-b-why-we-started-afresh-matt-schwartz/",
+    date: new Date("2022-08-11"),
+  },
+  {
+    title: "Five Things You Need To Create A Highly Successful Startup",
+    source: "Authority Magazine",
+    url: "https://medium.com/authority-magazine/matt-schwartz-of-afresh-five-things-you-need-to-create-a-highly-successful-startup-691c50ff08c7",
+    date: new Date("2022-01-06"),
+  },
+];
+
+const sortedArticles = articles.sort((a, b) => b.date.getTime() - a.date.getTime());
+
+const formatDate = (date: Date) => date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title="Articles - Matt Schwartz" description="Writing on technology, leadership, and building companies that matter.">
+  <section class="articles-header">
+    <h1>Articles</h1>
+  </section>
+
+  <section class="articles-list">
+    {sortedArticles.map((article) => (
+      <a href={article.url} target="_blank" rel="noopener noreferrer" class="article-link">
+        <div class="article-info">
+          <span class="article-title">{article.title}</span>
+          <span class="article-date">{formatDate(article.date)}</span>
+        </div>
+        <span class="article-source">{article.source} &rarr;</span>
+      </a>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .articles-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .articles-header h1 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .articles-header p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+  }
+
+  .articles-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .article-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-bg-alt);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .article-link:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  .article-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .article-title {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .article-date {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .article-source {
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    white-space: nowrap;
+    margin-left: var(--space-md);
+  }
+
+  @media (max-width: 640px) {
+    .article-link {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .article-source {
+      margin-left: 0;
+    }
+  }
+</style>

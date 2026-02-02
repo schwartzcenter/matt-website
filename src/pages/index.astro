@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+
+const latestArticle = {
+  title: "What I Learned From 1,000 Sleepless Nights",
+  source: "X",
+  url: "https://x.com/matt__schwartz/status/2016195070207332759",
+  date: new Date("2026-01-27"),
+};
+
+const formatDate = (date: Date) => date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title="Matt Schwartz - Building Companies, Creating Impact">
+  <section class="hero">
+    <img src="/matt-headshot.jpeg" alt="Matt Schwartz" class="headshot" />
+    <h1>Matt Schwartz</h1>
+    <p class="bio">
+      Co-founder and CEO of <a href="https://www.afresh.com" target="_blank" rel="noopener noreferrer">Afresh</a>, leveraging AI to eliminate food waste and make fresh food accessible to all. Before Afresh, I started a snack food brand, was an early employee at Simple Mills, and earned my MBA at Stanford GSB. I'm passionate about personal growth and helping others become the best version of themselves.
+    </p>
+    <SocialLinks />
+  </section>
+
+  <section class="featured">
+    <h2>Latest Writing</h2>
+    <a href={latestArticle.url} target="_blank" rel="noopener noreferrer" class="featured-article">
+      <div class="featured-info">
+        <span class="featured-title">{latestArticle.title}</span>
+        <span class="featured-date">{formatDate(latestArticle.date)}</span>
+      </div>
+      <span class="featured-source">{latestArticle.source} &rarr;</span>
+    </a>
+  </section>
+
+  <section class="cta">
+    <a href="/articles" class="btn btn-primary">All Articles</a>
+    <a href="/contact" class="btn btn-secondary">Get in Touch</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: var(--space-2xl) 0;
+    text-align: center;
+  }
+
+  .headshot {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: var(--space-md);
+    border: 2px solid var(--color-border);
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .bio {
+    max-width: 560px;
+    margin: 0 auto var(--space-xl);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .bio a {
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .bio a:hover {
+    text-decoration: underline;
+  }
+
+  .featured {
+    margin-top: var(--space-lg);
+  }
+
+  .featured h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+  }
+
+  .featured-article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-lg);
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    background-color: #eff6ff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .featured-article:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+
+  .featured-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .featured-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .featured-date {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .featured-source {
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    white-space: nowrap;
+    margin-left: var(--space-md);
+  }
+
+  .cta {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    color: white;
+  }
+
+  .btn-secondary {
+    background-color: var(--color-bg-alt);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .headshot {
+      width: 160px;
+      height: 160px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .featured-article {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .featured-source {
+      margin-left: 0;
+    }
+
+    .cta {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn {
+      text-align: center;
+    }
+  }
+</style>
